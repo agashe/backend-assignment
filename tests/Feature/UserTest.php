@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\User;
+use App\Models\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -42,8 +42,8 @@ class UserTest extends TestCase
             ->assertStatus(200);
 
         $this->get('/api/v1/users/'.$user->id)
-            ->assertJsonFragment(['weekly_views_count' => 1])
-            ->assertJsonFragment(['monthly_views_count' => 1]);
+            ->assertJsonFragment(['weekly_visits_count' => 1])
+            ->assertJsonFragment(['monthly_visits_count' => 1]);
     }
 
 
